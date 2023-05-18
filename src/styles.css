@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #247ba0;
+}
+
+form{
+    width: 450px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}

@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://viacep.com.br",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

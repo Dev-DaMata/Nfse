@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #303030;
+    padding: 20px 20px;
+    width: auto;
+    height: 90px;
+  }
+
+p{
+    font-size: 50px;
+}
