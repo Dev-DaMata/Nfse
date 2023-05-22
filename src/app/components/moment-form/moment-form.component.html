@@ -1,56 +1,75 @@
+<div class="pai">
+    <div class="formulario">
+        <form>
+        <div class="mb-3">
+            <p>Identificação do prestador de serviço</p>
+            <label for="inputCpfCnpjPrestador" class="form-label">CNPJ</label>
+            <input type="text" class="form-control" name="inputCpfCnpjPrestador" id="inputCpfCnpjPrestador" [(ngModel)]="inputCpfCnpjPrestador" required>
+            <label for="inputNomePrestador" class="form-label">Nome/Razão social do prestador de serviço</label>
+            <input type="text" class="form-control" name="inputNomePrestador" id="inputNomePrestador" [(ngModel)]="inputNomePrestador" required>
+            <label for="inputIncMunicPrest" class="form-label">Inscrição social Municipal do prestador de serviço</label>
+            <input type="text" class="form-control" name="inputIncMunicPrest" id="inputIncMunicPrest" [(ngModel)]="inputIncMunicPrest" required>
+        </div>
+        <div class="mb-3">
+            <p>Identificação do Tomador de serviço</p>
+            <label for="inputCpfCnpjTomador" class="form-label">CPF/CNPJ do tomador de serviço</label>
+            <input type="text" class="form-control" name="inputCpfCnpjTomador" id="inputCpfCnpjTomador" [(ngModel)]="inputCpfCnpjTomador" required>
+            <label for="inputNomeTomador" class="form-label">Nome/Razão social do tomador de serviço</label>
+            <input type="text" class="form-control" name="inputNomeTomador" id="inputNomeTomador" [(ngModel)]="inputNomeTomador" required>
+            <label for="inputIncMunicTomador" class="form-label">Inscrição social Municipal do tomador de serviço (se houver)</label>
+            <input type="text" class="form-control" name="inputIncMunicTomador" id="inputIncMunicTomador" [(ngModel)]="inputIncMunicTomador" >
+        </div>
+        <div class="mb-3">
+            <p>Dados da NFSe</p>
+            <label for="inputNfseNum" class="form-label">Número da NFS-e</label>
+            <input type="text" class="form-control" name="inputNfseNum" id="inputNfseNum" [(ngModel)]="inputNfseNum" required>
+            <label for="inputNfseDados" class="form-label">Data de emissão da NFS-e</label>
+            <input type="date" class="form-control" name="inputNfseDados" id="inputNfseDados" [(ngModel)]="inputNfseDados" required>
+            <label for="inputNfseValue" class="form-label">Valor Total da NFS-e</label>
+            <input type="text" class="form-control" name="inputNfseValue" id="inputNfseValue" [(ngModel)]="inputNfseValue" required>
+        </div>
+        <div class="mb-3">
+            <p>Descrição do serviço Prestado</p>
+            <label for="inputDesc" class="form-label">Descrição detalhada do serviço prestado</label>
+            <input type="text" class="form-control" name="inputDesc" id="inputDesc" [(ngModel)]="inputDesc" required>
+            <label for="inputDescValue" class="form-label">Valor unitário do serviço</label>
+            <input type="text" class="form-control" name="inputDescValue" id="inputDescValue" [(ngModel)]="inputDescValue" required>
+            <label for="inputDescQuant" class="form-label">Quantidade de unidades de serviço</label>
+            <input type="text" class="form-control" name="inputDescQuant" id="inputDescQuant" [(ngModel)]="inputDescQuant" required>
+            <label for="inputDescTotalServ" class="form-label">Valor total de serviço</label>
+            <input type="text" class="form-control" name="inputDescTotalServ" id="inputDescTotalServ" [(ngModel)]="inputDescTotalServ" required>
+        </div>
+        <div class="mb-3">
+            <p>Impostos</p>
+            <label for="inputImp" class="form-label">ISS (Imposto Sobre Serviço)</label>
+            <input type="text" class="form-control" name="inputImp" id="inputImp" [(ngModel)]="inputImp" required>
+            <label for="inputImpAliquota" class="form-label">Aliquota do ISS</label>
+            <input type="text" class="form-control" name="inputImpAliquota" id="inputDescValue" [(ngModel)]="inputImpAliquota" required>
+            <label for="inputImpValue" class="form-label">Valor do ISS a ser retido/pago</label>
+            <input type="text" class="form-control" name="inputImpValue" id="inputDescQuant" [(ngModel)]="inputImpValue" required>
+        </div>
+        <div class="mb-3">
+            <p>Observações</p>
+            <label for="inputObv" class="form-label">Observações</label>
+            <textarea id="inputObv" name="inputObv" rows="4" cols="50" [(ngModel)]="inputObv"></textarea>
+        </div>
 
-  <form>
-    <div class="mb-3">
-        <p>Identificação do prestador de serviço</p>
-        <label for="inputNomePrestador" class="form-label">Nome/Razão social do prestador de serviço</label>
-        <input type="text" class="form-control" name="inputNomePrestador" id="inputNomePrestador" [(ngModel)]="inputNomePrestador" required>
-        <label for="inputCpfCnpjPrestador" class="form-label">CPF/CNPJ do prestador de serviço</label>
-        <input type="text" class="form-control" name="inputCpfCnpjPrestador" id="inputCpfCnpjPrestador" [(ngModel)]="inputCpfCnpjPrestador" required>
-        <label for="inputIncMunicPrest" class="form-label">Inscrição social Municipal do prestador de serviço</label>
-        <input type="text" class="form-control" name="inputIncMunicPrest" id="inputIncMunicPrest" [(ngModel)]="inputIncMunicPrest" required>
+
+        <button type="submit" class="btn btn-primary" (click)="gerarXML()">Gerar NFSE</button>
+    </form>
     </div>
-    <div class="mb-3">
-        <p>Identificação do Tomador de serviço</p>
-        <label for="inputNomeTomador" class="form-label">Nome/Razão social do tomador de serviço</label>
-        <input type="text" class="form-control" name="inputNomeTomador" id="inputNomeTomador" [(ngModel)]="inputNomeTomador" required>
-        <label for="inputCpfCnpjTomador" class="form-label">CPF/CNPJ do tomador de serviço</label>
-        <input type="text" class="form-control" name="inputCpfCnpjTomador" id="inputCpfCnpjTomador" [(ngModel)]="inputCpfCnpjTomador" required>
-        <label for="inputIncMunicTomador" class="form-label">Inscrição social Municipal do tomador de serviço (se houver)</label>
-        <input type="text" class="form-control" name="inputIncMunicTomador" id="inputIncMunicTomador" [(ngModel)]="inputIncMunicTomador" >
+
+    <div>
+        <p>Pesquisa por cnpj</p>
+        <div class="pesquisa">
+            <input 
+            type="text" class="form-control" 
+            name="inputBuscaCnpj" 
+            id="inputBuscaCnpj"
+            placeholder="Insira a Identificação de CNPJ"
+            [(ngModel)]="inputBuscaCnpj" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="PostForm()">Salvar NFSE</button>
     </div>
-    <div class="mb-3">
-        <p>Dados da NFSe</p>
-        <label for="inputNfseNum" class="form-label">Número da NFS-e</label>
-        <input type="text" class="form-control" name="inputNfseNum" id="inputNfseNum" [(ngModel)]="inputNfseNum" required>
-        <label for="inputNfseDados" class="form-label">Data de emissão da NFS-e</label>
-        <input type="date" class="form-control" name="inputNfseDados" id="inputNfseDados" [(ngModel)]="inputNfseDados" required>
-        <label for="inputNfseValue" class="form-label">Valor Total da NFS-e</label>
-        <input type="text" class="form-control" name="inputNfseValue" id="inputNfseValue" [(ngModel)]="inputNfseValue" required>
-    </div>
-    <div class="mb-3">
-        <p>Descrição do serviço Prestado</p>
-        <label for="inputDesc" class="form-label">Descrição detalhada do serviço prestado</label>
-        <input type="text" class="form-control" name="inputDesc" id="inputDesc" [(ngModel)]="inputDesc" required>
-        <label for="inputDescValue" class="form-label">Valor unitário do serviço</label>
-        <input type="text" class="form-control" name="inputDescValue" id="inputDescValue" [(ngModel)]="inputDescValue" required>
-        <label for="inputDescQuant" class="form-label">Quantidade de unidades de serviço</label>
-        <input type="text" class="form-control" name="inputDescQuant" id="inputDescQuant" [(ngModel)]="inputDescQuant" required>
-        <label for="inputDescTotalServ" class="form-label">Valor total de serviço</label>
-        <input type="text" class="form-control" name="inputDescTotalServ" id="inputDescTotalServ" [(ngModel)]="inputDescTotalServ" required>
-    </div>
-    <div class="mb-3">
-        <p>Impostos</p>
-        <label for="inputImp" class="form-label">ISS (Imposto Sobre Serviço)</label>
-        <input type="text" class="form-control" name="inputImp" id="inputImp" [(ngModel)]="inputImp" required>
-        <label for="inputImpAliquota" class="form-label">Aliquota do ISS</label>
-        <input type="text" class="form-control" name="inputImpAliquota" id="inputDescValue" [(ngModel)]="inputImpAliquota" required>
-        <label for="inputImpValue" class="form-label">Valor do ISS a ser retido/pago</label>
-        <input type="text" class="form-control" name="inputImpValue" id="inputDescQuant" [(ngModel)]="inputImpValue" required>
-    </div>
-    <div class="mb-3">
-        <p>Observações</p>
-        <label for="inputObv" class="form-label">Observações</label>
-        <textarea id="inputObv" name="inputObv" rows="4" cols="50" [(ngModel)]="inputObv"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="gerarXML()">Gerar NFSE</button>
-  </form>
+</div>
